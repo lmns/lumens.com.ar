@@ -19,8 +19,8 @@ var material = new THREE.MeshBasicMaterial(
 	}
 );
 
-var cube = new THREE.Mesh(geometry, material);
-scene.add(cube);
+var ring = new THREE.Mesh(geometry, material);
+scene.add(ring);
 
 document.body.appendChild(renderer.domElement);
 
@@ -42,8 +42,8 @@ var b = upDown(0.5, 0.011, 0.5, 1);
 
 function render() {
 	requestAnimationFrame(render);
-	cube.rotation.z += 0.005;
-	cube.material.color.setRGB(r.next().value, g.next().value, b.next().value);
+	ring.rotation.z += 0.005;
+	ring.material.color.setRGB(r.next().value, g.next().value, b.next().value);
 	renderer.render(scene, camera);
 }
 
