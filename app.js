@@ -10,7 +10,7 @@ camera.position.z = 5;
 var renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 
-var geometry = new THREE.RingGeometry(0.01, window.innerWidth, 64, 64);
+var geometry = new THREE.RingGeometry(0.0, window.innerWidth, 64, 64);
 
 var material = new THREE.MeshBasicMaterial(
 	{
