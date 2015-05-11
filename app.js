@@ -10,7 +10,7 @@ camera.position.z = 5;
 var renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 
-var geometry = new THREE.RingGeometry(0.0, window.innerWidth, 64, 64);
+var geometry = new THREE.RingGeometry(0.0, window.innerWidth, 170, 170);
 
 var material = new THREE.MeshBasicMaterial(
 	{
@@ -36,14 +36,14 @@ function* upDown(start, step, min, max) {
 	}
 }
 
-var r = upDown(1, 0.005, 0.5, 1);
-var g = upDown(0, 0.007, 0.5, 1);
-var b = upDown(0.5, 0.011, 0.5, 1);
+var r = upDown(1, 0.002, 0.1, 1);
+var g = upDown(0, 0.003, 0.1, 1);
 
 function render() {
 	requestAnimationFrame(render);
-	ring.rotation.z += 0.005;
-	ring.material.color.setRGB(r.next().value, g.next().value, b.next().value);
+	ring.rotation.z += 0.001;
+	ring.rotation.x -= 0.0002;
+	ring.material.color.setRGB(r.next().value, g.next().value, 0);
 	renderer.render(scene, camera);
 }
 
