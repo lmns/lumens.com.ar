@@ -37,7 +37,7 @@ function* upDown(start, step, min, max) {
 }
 
 var r = upDown(1, 0.001, 0.1, 1);
-var g = upDown(0, 0.001, 0.1, 0.3);
+var g = upDown(0, 0.001, 0.1, 1);
 var b = upDown(0.5, 0.001, 0.1, 1);
 
 function render() {
