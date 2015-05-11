@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 var scene = new THREE.Scene();
 
@@ -36,14 +36,15 @@ function* upDown(start, step, min, max) {
 	}
 }
 
-var r = upDown(1, 0.002, 0.1, 1);
-var g = upDown(0, 0.003, 0.1, 1);
+var r = upDown(1, 0.001, 0.1, 1);
+var g = upDown(0, 0.001, 0.1, 0.3);
+var b = upDown(0.5, 0.001, 0.1, 1);
 
 function render() {
 	requestAnimationFrame(render);
 	ring.rotation.z += 0.001;
 	ring.rotation.x -= 0.0002;
-	ring.material.color.setRGB(r.next().value, g.next().value, 0);
+	ring.material.color.setRGB(r.next().value, g.next().value, b.next().value);
 	renderer.render(scene, camera);
 }
 
