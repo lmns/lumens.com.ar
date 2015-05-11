@@ -49,3 +49,21 @@ function render() {
 }
 
 render(scene, camera, renderer);
+
+document.body.addEventListener('click', function () {
+	if (screenfull.enabled) {
+		screenfull.request();
+		document.body.style.cursor = 'none';
+	}
+});
+
+function resizeHandler () {
+	camera.aspect = window.innerWidth / window.innerHeight;
+	camera.updateProjectionMatrix();
+	renderer.setSize( window.innerWidth, window.innerHeight );
+}
+
+var fsEvents = "resize fullscreenchange webkitfullscreenchange mozfullscreenchange";
+fsEvents.split(" ").forEach(function (e) {
+	window.addEventListener(e, resizeHandler, false);
+});
